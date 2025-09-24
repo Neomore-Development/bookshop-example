@@ -1,0 +1,21 @@
+{
+  "routes": [
+    {
+      "source": "^/bookshop/odata/(.*)$",
+      "target": "/odata/$1",
+      "destination": "srv-api",
+      "csrfProtection": true
+    },
+    {
+      "source": "^/bookshop/(.*)$",
+      "target": "/bookshopelementsbookshopelements/$1",
+      "service": "html5-apps-repo-rt"
+    },
+    {
+      "source": "^/(.*)$",
+      "target": "$1",
+      "destination": "srv-api",
+      "csrfProtection": true
+    }
+  ]
+}

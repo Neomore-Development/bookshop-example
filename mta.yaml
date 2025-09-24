@@ -1,0 +1,157 @@
+_schema-version: 3.3.0
+ID: bookshop-example
+description: A simple Bookshop CAP project.
+version: 1.0.0
+modules:
+- name: bookshop-example-srv
+  type: nodejs
+  path: gen/srv
+  requires:
+  - name: bookshop-example-auth
+  - name: bookshop-example-postgres
+  provides:
+  - name: srv-api
+    properties:
+      srv-url: ${default-url}
+  parameters:
+    buildpack: nodejs_buildpack
+    instances: 1
+  build-parameters:
+    builder: custom
+    commands:
+      - npm root
+    ignore:
+      - node_modules/
+- name: bookshop-example-postgres-deployer
+  type: nodejs
+  path: gen/pg
+  build-parameters:
+    builder: custom
+    commands:
+      - npm root
+    ignore:
+      - node_modules/
+  requires:
+  - name: bookshop-example-postgres
+  parameters:
+    buildpack: nodejs_buildpack
+    no-route: true
+    no-start: true
+    tasks:
+    - name: deploy-to-postgresql
+      command: npm start
+- name: bookshop-example
+  type: approuter.nodejs
+  path: app/router
+  build-parameters:
+    builder: custom
+    commands:
+      - npm root
+    ignore:
+      - node_modules/
+  requires:
+  - name: srv-api
+    group: destinations
+    properties:
+      forwardAuthToken: true
+      name: srv-api
+      url: ~{srv-url}
+  - name: bookshop-example-auth
+  - name: bookshop-example-destination-service
+    group: destinations
+    properties:
+      forwardAuthToken: false
+      name: ui5
+      url: https://ui5.sap.com
+  - name: bookshop-example-repo-rt
+  provides:
+  - name: app-api
+    properties:
+      app-protocol: ${protocol}
+      app-uri: ${default-uri}
+  parameters:
+    disk-quota: 256M
+    keep-existing-routes: true
+    memory: 256M
+- name: bookshop-example-app-content
+  type: com.sap.application.content
+  path: .
+  requires:
+  - name: bookshop-example-repo-host
+    parameters:
+      content-target: true
+  build-parameters:
+    build-result: resources
+    requires:
+    - artifacts:
+      - bookshopelementsbookshopelements.zip
+      name: bookshopelementsbookshopelements
+      target-path: resources/
+- name: bookshopelementsbookshopelements
+  type: html5
+  path: app/bookshop-elements
+  build-parameters:
+    build-result: dist
+    builder: custom
+    commands:
+    - npm install
+    - npm run build:cf
+    supported-platforms: []
+resources:
+- name: bookshop-example-auth
+  type: org.cloudfoundry.managed-service
+  parameters:
+    config:
+      oauth2-configuration:
+        redirect-uris:
+        - https://*~{app-api/app-uri}/**
+      tenant-mode: dedicated
+      xsappname: bookshop-example
+    path: ./xs-security.json
+    service: xsuaa
+    service-plan: application
+  requires:
+  - name: app-api
+- name: bookshop-example-postgres
+  type: org.cloudfoundry.managed-service
+  parameters:
+    path: ./pq-options.json
+    service: postgresql-db
+    service-plan: standard
+- name: bookshop-example-repo-host
+  type: org.cloudfoundry.managed-service
+  parameters:
+    service: html5-apps-repo
+    service-name: bookshop-example-repo-host
+    service-plan: app-host
+- name: bookshop-example-repo-rt
+  type: org.cloudfoundry.managed-service
+  parameters:
+    service: html5-apps-repo
+    service-plan: app-runtime
+- name: bookshop-example-destination-service
+  type: org.cloudfoundry.managed-service
+  parameters:
+    config:
+      HTML5Runtime_enabled: false
+      init_data:
+        instance:
+          destinations:
+          - Authentication: NoAuthentication
+            Name: ui5
+            ProxyType: Internet
+            Type: HTTP
+            URL: https://ui5.sap.com
+          existing_destinations_policy: update
+      version: 1.0.0
+    service: destination
+    service-name: bookshop-example-destination-service
+    service-plan: lite
+parameters:
+  deploy_mode: html5-repo
+  enable-parallel-deployments: true
+build-parameters:
+  before-all:
+  - builder: custom
+    commands:
+    - npx cds build --production

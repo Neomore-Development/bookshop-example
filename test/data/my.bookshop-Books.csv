@@ -1,0 +1,16 @@
+ID,title,descr,stock,price,currency_code,publishedAt,genre_ID,author_ID
+01997121-55ed-762a-8bd2-52a2637ba04d,Harry Potter and the Sorcerer's Stone,Young wizard's journey,12,19.99,USD,1997-06-26,0199711d-e9d4-767b-a125-f1808b7f191d,0199711a-af27-708c-b53d-80782c5f2b23
+01997121-637c-743e-9051-8473ee0cbff6,Harry Potter and the Chamber of Secrets,Second year at Hogwarts,10,19.99,USD,1998-07-02,0199711d-e9d4-767b-a125-f1808b7f191d,0199711a-af27-708c-b53d-80782c5f2b23
+01997121-7655-703e-8938-cc0bed11f2a1,Harry Potter and the Prisoner of Azkaban,Hogwarts adventure continues,8,19.99,USD,1999-07-08,0199711d-e9d4-767b-a125-f1808b7f191d,0199711a-af27-708c-b53d-80782c5f2b23
+01997121-833f-721b-ba3a-97041fe989ae,A Game of Thrones,Political fantasy intrigue,7,22.50,USD,1996-08-06,0199711f-6658-72ad-b19e-460ee7f41caf,0199711b-b244-778e-9475-8b5b850c4b58
+01997121-988a-771c-b52a-1c88747500ca,A Clash of Kings,War and power struggle,5,22.50,USD,1998-11-16,0199711f-6658-72ad-b19e-460ee7f41caf,0199711b-b244-778e-9475-8b5b850c4b58
+01997121-ae3d-7431-b170-34e3e1c57ba3,A Storm of Swords,Battles and betrayal,4,22.50,USD,2000-08-08,0199711f-6658-72ad-b19e-460ee7f41caf,0199711b-b244-778e-9475-8b5b850c4b58
+01997121-bf71-7480-8a07-802040d76c71,The Hobbit,Bilbo's unexpected journey,5,15.00,USD,1937-09-21,0199711f-6658-72ad-b19e-460ee7f41caf,0199711c-3c8a-72ed-ba9b-8b015c6f31a0
+01997121-cbc0-709c-8e80-714d09f6a463,The Lord of the Rings: The Fellowship of the Ring,First part of epic quest,3,35.00,USD,1954-07-29,0199711f-6658-72ad-b19e-460ee7f41caf,0199711c-3c8a-72ed-ba9b-8b015c6f31a0
+01997121-dadc-7362-84ca-1c41122ca2e3,The Lord of the Rings: The Two Towers,Second part of epic quest,3,35.00,USD,1954-11-11,0199711f-6658-72ad-b19e-460ee7f41caf,0199711c-3c8a-72ed-ba9b-8b015c6f31a0
+01997121-ea45-77d8-a979-83e19ef812cb,The Lord of the Rings: The Return of the King,Final part of epic quest,3,35.00,USD,1955-10-20,0199711f-6658-72ad-b19e-460ee7f41caf,0199711c-3c8a-72ed-ba9b-8b015c6f31a0
+01997121-f8a8-742d-86d1-5baa5b612cb8,Murder on the Orient Express,Classic detective mystery,6,12.50,USD,1934-01-01,01997120-f197-759a-a83b-c2b137e13180,0199711c-fdd8-74b9-90b8-98af6de35fd0
+01997122-06da-714c-abb5-039eb0d904ea,And Then There Were None,Thriller with suspense,5,12.50,USD,1939-11-06,01997120-f197-759a-a83b-c2b137e13180,0199711c-fdd8-74b9-90b8-98af6de35fd0
+01997122-1416-710c-929c-f2801c6586a1,Foundation,Science fiction classic,8,18.00,USD,1951-06-01,0199711f-f1fb-71cd-b459-079ba054c83f,0199711d-633d-7398-a585-1b749b5cf0e6
+01997122-1f46-70bf-b178-48b3d26c8bc1,Foundation and Empire,Second book in series,6,18.00,USD,1952-05-01,0199711f-f1fb-71cd-b459-079ba054c83f,0199711d-633d-7398-a585-1b749b5cf0e6
+01997122-2ac2-7111-bf52-9a2752a56c16,Second Foundation,Final book in original trilogy,5,18.00,USD,1953-10-01,0199711f-f1fb-71cd-b459-079ba054c83f,0199711d-633d-7398-a585-1b749b5cf0e6

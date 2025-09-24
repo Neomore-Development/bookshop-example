@@ -1,0 +1,17 @@
+{
+    "audit_log_level": [
+        "ROLE",
+        "DDL"
+    ],
+    "backup_retention_period": 14,
+    "db_parameters": [],
+    "engine_version": "14",
+    "maintenance_window": {
+        "day_of_week": "Sunday",
+        "start_hour_utc": 4,
+        "start_minute_utc": 0
+    },
+    "memory": 4,
+    "multi_az": false,
+    "storage": 20
+}
