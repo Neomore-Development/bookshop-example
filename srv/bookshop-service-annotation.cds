@@ -17,6 +17,7 @@ annotate BS.Books with @(
     SelectionFields: [ title, author, genre ],
     LineItem: [
       { Value: title, Label: 'Title' },
+      { Value: IBAN, Label: 'IBAN' },
       { Value: author.firstName, Label: 'Author' },
       { Value: genre.name, Label: 'Genre' },
       { Value: price, Label: 'Price' },
@@ -42,6 +43,7 @@ annotate BS.Books with @(
         { Value: descr, Label: 'Description' },
         { Value: publishedAt, Label: 'Published At' },
         { Value: price, Label: 'Price' },
+        { Value: IBAN, Label: 'IBAN' },
         { Value: stock, Label: 'Stock', Criticality: stockCriticality }
       ]
     }

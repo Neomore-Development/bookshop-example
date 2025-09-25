@@ -26,6 +26,7 @@ entity Books : cuid, managed {
   price       : Decimal(9,2);
   currency    : Currency;
   publishedAt : Date;
+  IBAN        : String;
   genre       : Association to Genres;
   author      : Association to Authors;
   translations: Composition of many BookTranslations
