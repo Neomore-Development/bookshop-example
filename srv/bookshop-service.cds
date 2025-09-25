@@ -14,6 +14,7 @@ service BookshopService {
     author,
     genre,
     fullTitle,
+    IBAN,
     reviews: redirected to Reviews on reviews.book = $self
   };
 
